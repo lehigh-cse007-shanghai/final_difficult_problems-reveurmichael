@@ -93,42 +93,62 @@ public class FinalExamDifficult extends PApplet {
 
     public void moveUp(){
         // TODO: write your code here.
-        //  You should never use "new Cell()". Therefore, at each position of the cells grid,
+        //  You should never use "new Cell()". Therefore, at each position of the cells,
         //  the cell object won't change and maintains the same reference from the beginning
         //  to the end of the program.
         //  P.S. all Cell objects have already been instantiated by createCell().
 
+        for(int j = 0; j < size - 1; j ++)
+            for(int i = 0; i < size; i ++)
+                cells[i][j].isMovable = cells[i][j+1].isMovable;
 
+        for(int i = 0; i < size; i ++)
+            cells[i][size - 1].isMovable = false;
     }
 
     public void moveDown(){
         // TODO: write your code here.
-        //  You should never use "new Cell()". Therefore, at each position of the cells grid,
+        //  You should never use "new Cell()". Therefore, at each position of the cells,
         //  the cell object won't change and maintains the same reference from the beginning
         //  to the end of the program.
         //  P.S. all Cell objects have already been instantiated by createCell().
 
+        for(int j = size - 1; j >= 1; j --)
+            for(int i = 0; i < size; i ++)
+                cells[i][j].isMovable = cells[i][j-1].isMovable;
 
+        for(int i = 0; i < size; i ++)
+            cells[i][0].isMovable = false;
     }
 
     public void moveLeft(){
         // TODO: write your code here.
-        //  You should never use "new Cell()". Therefore, at each position of the cells grid,
+        //  You should never use "new Cell()". Therefore, at each position of the cells,
         //  the cell object won't change and maintains the same reference from the beginning
         //  to the end of the program.
         //  P.S. all Cell objects have already been instantiated by createCell().
 
+        for(int j = 0; j < size; j ++)
+            for(int i = 0; i < size - 1; i ++)
+                cells[i][j].isMovable = cells[i + 1][j].isMovable;
 
+        for(int j = 0; j < size; j ++)
+            cells[size - 1][j].isMovable = false;
     }
 
     public void moveRight(){
         // TODO: write your code here.
-        //  You should never use "new Cell()". Therefore, at each position of the cells grid,
+        //  You should never use "new Cell()". Therefore, at each position of the cells,
         //  the cell object won't change and maintains the same reference from the beginning
         //  to the end of the program.
         //  P.S. all Cell objects have already been instantiated by createCell().
 
+        for(int j = 0; j < size; j ++)
+            for(int i = size - 1; i >= 1; i --)
+                cells[i][j].isMovable = cells[i - 1][j].isMovable;
 
+        for(int j = 0; j < size; j ++)
+            cells[0][j].isMovable = false;
 
     }
 
